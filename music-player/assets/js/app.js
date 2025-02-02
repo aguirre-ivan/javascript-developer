@@ -12,7 +12,8 @@ const pauseIconSrc = './assets/images/Pause_fill.svg';
 
 const currentTimeElement = document.getElementById('currentTime');
 const totalTimeElement = document.getElementById('totalTime');
-const progressBar = document.getElementById('progressBar');
+const progressBarContainer = document.getElementById('progressBarContainer');
+const progressBarFill = document.getElementById('progressBarFill');
 
 const songs = [
     {
@@ -36,7 +37,8 @@ window.onload = () => {
     prevButton.addEventListener('click', toggleNext); // TODO: Implement previous song functionality. Now it's the same as next song.
     playButton.addEventListener('click', togglePlay);
     nextButton.addEventListener('click', toggleNext);
-    audioElement.addEventListener('timeupdate', updateProgressBar);
+    audioElement.addEventListener('timeupdate', updateProgressBarFill);
+    progressBarContainer.addEventListener('click', jumpToTime);
 
     function loadSong(song) {
         audioElement.src = song.songMusicSrc;
@@ -68,13 +70,13 @@ window.onload = () => {
         }
     }
 
-    function updateProgressBar() {
+    function updateProgressBarFill() {
         let { currentTime, duration } = audioElement;
         if (!duration) {
-            audioElement.addEventListener('loadedmetadata', updateProgressBar);
+            audioElement.addEventListener('loadedmetadata', updateProgressBarFill);
         }
         let progress = (currentTime / duration) * 100;
-        progressBar.style.width = `${progress}%`;
+        progressBarFill.style.width = `${progress}%`;
 
         let currentMinutes = Math.floor(currentTime / 60);
         let currentSeconds = Math.floor(currentTime % 60);
@@ -83,5 +85,12 @@ window.onload = () => {
 
         currentTimeElement.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' + currentSeconds : currentSeconds}`;
         totalTimeElement.textContent = `${totalMinutes}:${totalSeconds}`;
+    }
+
+    function jumpToTime(event) {
+        let progressBarContainerWidth = progressBarContainer.offsetWidth;
+        let clickPosition = event.offsetX;
+        let newTime = (clickPosition / progressBarContainerWidth) * audioElement.duration;
+        audioElement.currentTime = newTime;
     }
 }

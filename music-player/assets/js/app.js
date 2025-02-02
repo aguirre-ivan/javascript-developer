@@ -70,6 +70,9 @@ window.onload = () => {
 
     function updateProgressBar() {
         let { currentTime, duration } = audioElement;
+        if (!duration) {
+            audioElement.addEventListener('loadedmetadata', updateProgressBar);
+        }
         let progress = (currentTime / duration) * 100;
         progressBar.style.width = `${progress}%`;
 
@@ -80,7 +83,5 @@ window.onload = () => {
 
         currentTimeElement.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' + currentSeconds : currentSeconds}`;
         totalTimeElement.textContent = `${totalMinutes}:${totalSeconds}`;
-
-        // ! Total time is not updating correctly. Fix it.
     }
 }

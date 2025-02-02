@@ -5,32 +5,71 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1.0" />
-
 	<link rel="icon"
 		href="resources/favicon.ico"
 		type="image/x-icon"
 		sizes="96x96" />
-
 	<title>Music Player | devChallenges.io</title>
+	<link rel="stylesheet"
+		href="./assets/sass/styles.css" />
 </head>
 
 <body>
-	<!-- 
+	<div class="music-player-container">
+		<div class="music-player">
+			<audio src="./assets/audio/forest-lullaby-110624.mp3"
+				id="audio"></audio>
 
-  Lost in the City Lights
-  
-  Cosmo Sheldrake
-
-  Forest Lullaby
-  
-  Lesfm
-  -->
-
-	<div class="author-info">
-		Coded by <a href="#">Your Name Here</a> | Challenge by
-		<a href="https://www.devchallenges.io?ref=challenge"
-			target="_blank">devChallenges.io</a>.
+			<div class="music-player__cover">
+				<img src="./assets/images/cover-1.jpg"
+					alt="Lost in the City Lights" />
+			</div>
+			<div class="music-player__info">
+				<h1 class="music-player__title"
+					id="title">Lost in the City Lights</h1>
+				<p class="music-player__artist">Cosmo Sheldrake</p>
+			</div>
+			<div class="music-player__progress">
+				<div class="music-player__progress--duration">
+					<div class="remains-time">
+						00:00
+					</div>
+					<div class="total-time">
+						00:00
+					</div>
+				</div>
+				<div class="music-player__progress--bar">
+					<div class="music-player__progress--bar--fill"
+						id="progress"></div>
+				</div>
+			</div>
+			<div class="music-player__buttons">
+				<button type="button"
+					class="navigation-button"
+					id="previous-btn"
+					title="Previous Song">
+					<img src="./assets/images/Stop_and_play_fill.svg"
+						alt="Previous icon for the songs" />
+				</button>
+				<button type="button"
+					class="play-button"
+					id="play-btn"
+					title="Play Song">
+					<img src="./assets/images/Play_fill.svg"
+						alt="Play icon for the songs" />
+				</button>
+				<button type="button"
+					class="navigation-button"
+					id="next-btn"
+					title="Next Song">
+					<img src="./assets/images/Stop_and_play_fill_reverse.svg"
+						alt="Next icon for the songs" />
+				</button>
+			</div>
+		</div>
 	</div>
+
+	<script src="./assets/js/app.js"></script>
 </body>
 
 </html>

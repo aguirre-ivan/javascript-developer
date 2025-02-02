@@ -1,0 +1,110 @@
+/*
+* Import Google Fonts
+*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+/*
+* Reset CSS
+* Global styles
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+/*
+* Music player
+*/
+.music-player-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url("../images/gradient-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.music-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(18, 24, 38, 0.6509803922);
+  width: 345px;
+  padding: 1.2rem;
+  border-radius: 1.2rem;
+}
+.music-player__cover {
+  border-radius: 1.2rem;
+  overflow: hidden;
+}
+.music-player__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 1rem 0;
+}
+.music-player__info h1 {
+  color: #E5E7EB;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.music-player__info p {
+  color: #4D5562;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.music-player__progress {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+}
+.music-player__progress--duration {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: #4D5562;
+  font-size: 0.625rem;
+}
+.music-player__progress--bar {
+  width: 100%;
+  height: 0.25rem;
+  background-color: #E5E7EB;
+  box-shadow: 0 0 5px rgba(229, 231, 235, 0.5);
+  border-radius: 0.2rem;
+  position: relative;
+}
+.music-player__progress--bar--fill {
+  height: 100%;
+  background-color: #C93B76;
+  width: 30%;
+  border-radius: 0.2rem;
+}
+.music-player__buttons {
+  padding: 2rem 0 0.5rem;
+  display: flex;
+  gap: 1rem;
+}
+.music-player__buttons button {
+  border: none;
+  cursor: pointer;
+}
+.music-player__buttons button.play-button {
+  background-color: #C93B76;
+  color: #E5E7EB;
+  padding: 0.5rem;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(201, 59, 118, 0.5);
+}
+.music-player__buttons button.navigation-button {
+  color: #E5E7EB;
+  border-radius: 50%;
+  background-color: transparent;
+}/*# sourceMappingURL=styles.css.map */

@@ -54,5 +54,15 @@ window.onload = () => {
         isPlaying = !isPlaying;
     }
 
+    function toggleNext() {
+        songIndex = (songIndex + 1) % songs.length;
+        loadSong(songs[songIndex]);
+        if (isPlaying) {
+            audioElement.play();
+        }
+    }
+
     playButton.addEventListener('click', togglePlay);
+    nextButton.addEventListener('click', toggleNext);
+    prevButton.addEventListener('click', toggleNext); // TODO: Implement previous song functionality. Now it's the same as next song.
 }

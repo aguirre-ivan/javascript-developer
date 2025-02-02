@@ -7,12 +7,12 @@ const prevButton = document.getElementById('prevButton');
 const playButton = document.getElementById('playButton');
 const playIcon = playButton.querySelector('img');
 const nextButton = document.getElementById('nextButton');
+const playIconSrc = './assets/images/Play_fill.svg';
+const pauseIconSrc = './assets/images/Pause_fill.svg';
+
 const currentTimeElement = document.getElementById('currentTime');
 const totalTimeElement = document.getElementById('totalTime');
 const progressBar = document.getElementById('progressBar');
-
-const playIconSrc = './assets/images/Play_fill.svg';
-const pauseIconSrc = './assets/images/Pause_fill.svg';
 
 const songs = [
     {
@@ -31,8 +31,12 @@ const songs = [
 
 window.onload = () => {
     let songIndex = 0;
-    loadSong(songs[songIndex]);
     let isPlaying = false;
+
+    prevButton.addEventListener('click', toggleNext); // TODO: Implement previous song functionality. Now it's the same as next song.
+    playButton.addEventListener('click', togglePlay);
+    nextButton.addEventListener('click', toggleNext);
+    audioElement.addEventListener('timeupdate', updateProgressBar);
 
     function loadSong(song) {
         audioElement.src = song.songMusicSrc;
@@ -40,6 +44,8 @@ window.onload = () => {
         titleElement.textContent = song.songTitle;
         artistElement.textContent = song.songArtist;
     }
+
+    loadSong(songs[songIndex]);
 
     function togglePlay() {
         if (isPlaying) {
@@ -62,7 +68,19 @@ window.onload = () => {
         }
     }
 
-    playButton.addEventListener('click', togglePlay);
-    nextButton.addEventListener('click', toggleNext);
-    prevButton.addEventListener('click', toggleNext); // TODO: Implement previous song functionality. Now it's the same as next song.
+    function updateProgressBar() {
+        let { currentTime, duration } = audioElement;
+        let progress = (currentTime / duration) * 100;
+        progressBar.style.width = `${progress}%`;
+
+        let currentMinutes = Math.floor(currentTime / 60);
+        let currentSeconds = Math.floor(currentTime % 60);
+        let totalMinutes = Math.floor(duration / 60);
+        let totalSeconds = Math.floor(duration % 60);
+
+        currentTimeElement.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' + currentSeconds : currentSeconds}`;
+        totalTimeElement.textContent = `${totalMinutes}:${totalSeconds}`;
+
+        // ! Total time is not updating correctly. Fix it.
+    }
 }

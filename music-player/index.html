@@ -6,7 +6,7 @@
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1.0" />
 	<link rel="icon"
-		href="resources/favicon.ico"
+		href="./assets/images/favicon.ico"
 		type="image/x-icon"
 		sizes="96x96" />
 	<title>Music Player | devChallenges.io</title>
@@ -18,49 +18,52 @@
 	<div class="music-player-container">
 		<div class="music-player">
 			<audio src="./assets/audio/forest-lullaby-110624.mp3"
-				id="audio"></audio>
-
+				id="songAudio"></audio>
 			<div class="music-player__cover">
 				<img src="./assets/images/cover-1.jpg"
-					alt="Lost in the City Lights" />
+					alt="Lost in the City Lights"
+					id="songCover" />
 			</div>
 			<div class="music-player__info">
 				<h1 class="music-player__title"
-					id="title">Lost in the City Lights</h1>
-				<p class="music-player__artist">Cosmo Sheldrake</p>
+					id="songTitle">Lost in the City Lights</h1>
+				<p class="music-player__artist"
+					id="songArtist">Cosmo Sheldrake</p>
 			</div>
 			<div class="music-player__progress">
 				<div class="music-player__progress--duration">
-					<div class="remains-time">
+					<div class="current-time"
+						id="currentTime">
 						00:00
 					</div>
-					<div class="total-time">
+					<div class="total-time"
+						id="totalTime">
 						00:00
 					</div>
 				</div>
 				<div class="music-player__progress--bar">
 					<div class="music-player__progress--bar--fill"
-						id="progress"></div>
+						id="progressBar"></div>
 				</div>
 			</div>
 			<div class="music-player__buttons">
 				<button type="button"
 					class="navigation-button"
-					id="previous-btn"
+					id="prevButton"
 					title="Previous Song">
 					<img src="./assets/images/Stop_and_play_fill.svg"
 						alt="Previous icon for the songs" />
 				</button>
 				<button type="button"
 					class="play-button"
-					id="play-btn"
+					id="playButton"
 					title="Play Song">
 					<img src="./assets/images/Play_fill.svg"
 						alt="Play icon for the songs" />
 				</button>
 				<button type="button"
 					class="navigation-button"
-					id="next-btn"
+					id="nextButton"
 					title="Next Song">
 					<img src="./assets/images/Stop_and_play_fill_reverse.svg"
 						alt="Next icon for the songs" />

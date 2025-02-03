@@ -2,21 +2,112 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="A multi-step registration form for devChallenges.io project." />
-  <link rel="icon"
-    href="resources/favicon.ico"
-    type="image/x-icon"
-    sizes="96x96" />
-  <title>Multi-step Register Form | devChallenges.io</title>
-  <link rel="stylesheet"
-    href="styles/styles.css" />
+	<meta charset="UTF-8" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0" />
+	<meta name="description"
+		content="A multi-step registration form for devChallenges.io project." />
+	<link rel="icon"
+		href="assets/images/favicon.ico"
+		type="image/x-icon"
+		sizes="96x96" />
+	<title>Multi-step Register Form | devChallenges.io</title>
+	<link rel="stylesheet"
+		href="./assets/sass/styles.css" />
 </head>
 
 <body>
+	<div class="main-container">
+		<form class="register-form"
+			id="multiStepForm">
+			<fieldset class="register-form__step">
+				<h2 class="register-form__step-title">
+					Register
+				</h2>
+				<label>Name</label>
+				<input type="text"
+					id="name"
+					placeholder="Enter your name"
+					required>
+				<label>Email</label>
+				<input type="email"
+					id="email"
+					placeholder="Example@gmail.com"
+					required>
+				<button type="button"
+					class="register-form__button register-form__button--next">
+					Continue
+				</button>
+			</fieldset>
+
+			<fieldset class="register-form__step register-form__step--active">
+				<h2 class="register-form__step-title">
+					What topics are you interested in?
+				</h2>
+
+				<label class="register-form__custom-checkbox"
+					for="dev">
+					Software Development
+					<input type="checkbox"
+						id="softwareDevelopment"
+						name="softwareDevelopment"
+						data-title="Software Development">
+				</label>
+
+				<label class="register-form__custom-checkbox"
+					for="userExperience">
+					User Experience
+					<input type="checkbox"
+						id="userExperience"
+						name="userExperience"
+						data-title="User Experience">
+				</label>
+
+				<label class="register-form__custom-checkbox"
+					for="graphicDesign">
+					Graphic Design
+					<input type="checkbox"
+						id="graphicDesign"
+						name="graphicDesign"
+						data-title="Graphic Design">
+				</label>
+				<button type="button"
+					class="register-form__button register-form__button--next">
+					Continue
+				</button>
+			</fieldset>
+
+			<fieldset class="register-form__step register-form__step--active register-form__step--summary-values">
+				<h2>
+					Summary
+				</h2>
+				<div class="register-form__summary-item">
+					<div class="summary-label">Name:</div>
+					<div class="summary-value"
+						id="summaryName"></div>
+				</div>
+				<div class="register-form__summary-item">
+					<div class="summary-label">Email:</div>
+					<div class="summary-value"
+						id="summaryEmail"></div>
+				</div>
+				<div class="register-form__summary-item">
+					<div class="summary-label">Topics:</div>
+					<ul class="summary-value"
+						id="summaryTopics"></ul>
+				<button type="button"
+					class="register-form__button register-form__button--finish">
+					Continue
+				</button>
+			</fieldset>
+		</form>
+		<div class="form-pagination">
+			<div class="form-pagination__dot form-pagination__dot--filled"></div>
+			<div class="form-pagination__dot"></div>
+			<div class="form-pagination__dot"></div>
+		</div>
+	</div>
+	<script src="./assets/js/app.js"></script>
 </body>
 
 </html>

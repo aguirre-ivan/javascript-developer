@@ -1,0 +1,135 @@
+/*
+* Import Google Fonts
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:wght@100&display=swap');
+
+/*
+* Reset CSS
+* Global styles
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #121826;
+    // background: radial-gradient(circle at 0rem 0rem, #212936, transparent 30%), radial-gradient(circle at 100% 100%, #212936, transparent 30%);
+}
+
+.main-container {
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.register-form {
+    width: 100%;
+    max-width: 475px;
+    padding: 38px;
+    background-color: #212936;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    
+    &__step {
+        display: none;
+
+        &--active {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border: none;
+        }
+    }
+
+    &__step-title {
+        color: #E5E7EB;
+        font-size: 20px;
+        margin-bottom: 38px;
+    }
+
+    label {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        span {
+            font-size: 10px;
+            color: #e2e8f0;
+        }
+
+        input {
+            padding: 0.9rem;
+            border: 1px solid #4D5562;
+            border-radius: 0.75rem;
+            background-color: transparent;
+            color: #e2e8f0;
+
+            &:focus {
+                outline: none;
+                border-color: #3B82F6;
+            }
+
+            &::placeholder {
+                color: #e2e8f0;
+                font-size: 12px;
+            }
+        }
+    }
+
+    &__button {
+        padding: 0.8rem 2rem;
+        border: none;
+        border-radius: 2rem;
+        background-image: linear-gradient(#845EEE, #5425AF);
+        color: #e2e8f0;
+        font-size: 12px;
+        align-self: center;
+        margin: 1rem 0;
+        cursor: pointer;
+
+        &:hover {
+            background-image: linear-gradient(#845EEE, #6D28D9);
+        }
+    }
+
+}
+
+.form-pagination {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+    &__step {
+        color: #A1A1A9;
+        font-size: 12px;
+        margin-right: 10px;
+    }
+
+    &__dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #4D5562;
+
+        &--current {
+            background-color: #652cd1;
+            box-shadow: 0 0 0 .4rem #342d61;
+        }
+
+        &--filled {
+            background-color: #652cd1;
+            cursor: pointer;
+
+            &:hover {
+                box-shadow: 0 0 0 .4rem #342d61;
+            }
+        }
+    }
+}

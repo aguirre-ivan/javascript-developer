@@ -2,6 +2,7 @@ const steps = document.querySelectorAll(".register-form__step");
 const nextButtons = document.querySelectorAll(".register-form__button--next");
 const dots = document.querySelectorAll(".form-pagination__dot");
 const stepInfo = document.querySelector(".form-pagination__step");
+const checkboxItemsInput = document.querySelectorAll(".register-form__custom-checkbox input");
 
 document.addEventListener("DOMContentLoaded", function () {
     let currentStep = 0;
@@ -39,6 +40,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    function updateCheckboxItem(checkboxInput) {
+        let inputParent = checkboxInput.closest(".register-form__custom-checkbox");
+        inputParent.classList.toggle("register-form__custom-checkbox--checked");
+    }
+
     dots.forEach((dot, i) => {
         dot.addEventListener("click", () => {
             goToStep(i);
@@ -47,6 +53,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     nextButtons.forEach((button) => {
         button.addEventListener("click", nextStep);
+    });
+
+    checkboxItemsInput.forEach((checkboxInput) => {
+        checkboxInput.addEventListener("change", () => {
+            updateCheckboxItem(checkboxInput);
+        });
     });
 
     showStep(currentStep);

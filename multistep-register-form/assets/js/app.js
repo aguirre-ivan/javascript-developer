@@ -4,6 +4,10 @@ const dots = document.querySelectorAll(".form-pagination__dot");
 const stepInfo = document.querySelector(".form-pagination__step");
 const checkboxItemsInput = document.querySelectorAll(".register-form__custom-checkbox input");
 
+const summaryName = document.getElementById("summaryName");
+const summaryEmail = document.getElementById("summaryEmail");
+const summaryTopics = document.getElementById("summaryTopics");
+
 document.addEventListener("DOMContentLoaded", function () {
     let currentStep = 0;
 
@@ -22,16 +26,20 @@ document.addEventListener("DOMContentLoaded", function () {
             dot.classList.toggle("form-pagination__dot--current", i === index);
         });
 
+        if (index === steps.length - 1) {
+            updateSummary();
+        }
+
         stepInfo.textContent = `Step ${index + 1} of ${steps.length}`;
     }
-    
+
     function nextStep() {
         if (currentStep < steps.length - 1) {
             currentStep++;
             showStep(currentStep);
         }
     }
-    
+
     function goToStep(index) {
         let selectedDot = dots[index];
         if (selectedDot.classList.contains("form-pagination__dot--filled")) {
@@ -43,6 +51,29 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateCheckboxItem(checkboxInput) {
         let inputParent = checkboxInput.closest(".register-form__custom-checkbox");
         inputParent.classList.toggle("register-form__custom-checkbox--checked");
+    }
+
+    function updateSummary() {
+        // Update name
+        let nameInput = document.getElementById("name");
+        summaryName.textContent = nameInput.value;
+
+        // Update email
+        let emailInput = document.getElementById("email");
+        summaryEmail.textContent = emailInput.value;
+
+        // Update topics
+        let checkedItems = document.querySelectorAll(".register-form__custom-checkbox--checked");
+        summaryTopics.innerHTML = "";
+        checkedItems.forEach((item) => {
+            let li = document.createElement("li");
+            li.textContent = item.querySelector("input").value;
+            summaryTopics.appendChild(li);
+        });
+
+        if (summaryTopics.children.length === 0) {
+            summaryTopics.textContent = "No topics selected";
+        }
     }
 
     dots.forEach((dot, i) => {

@@ -37,10 +37,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function nextStep() {
         if (currentStep < steps.length - 1) {
-            currentStep++;
-            showStep(currentStep);
+            if (currentStep === 0) {
+                let nameInput = document.getElementById("name");
+                let emailInput = document.getElementById("email");
+    
+                if (!validateName(nameInput.value)) {
+                    nameInput.focus();
+                    return;
+                }
+                if (!validateEmail(emailInput.value)) {
+                    emailInput.focus();
+                    return;
+                }
+    
+                currentStep++;
+                showStep(currentStep);
+            } else {
+                currentStep++;
+                showStep(currentStep);
+            }
         }
-    }
+    }    
 
     function goToStep(index) {
         let selectedDot = dots[index];
@@ -94,6 +111,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 input.value = "";
             }
         });
+    }
+
+    function validateEmail(email) {
+        let re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+
+    function validateName(name) {
+        return name.length > 0;
     }
 
     dots.forEach((dot, i) => {

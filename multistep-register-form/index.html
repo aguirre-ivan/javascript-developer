@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0" />
+	<meta name="description"
+		content="A multi-step registration form for devChallenges.io project." />
+	<link rel="icon"
+		href="assets/images/favicon.ico"
+		type="image/x-icon"
+		sizes="96x96" />
+	<title>Multi-step Register Form | devChallenges.io</title>
+	<link rel="stylesheet"
+		href="./assets/sass/styles.css" />
+</head>
+
+<body>
+	<div class="main-container">
+		<form class="register-form"
+			id="multiStepForm">
+			<fieldset class="register-form__step register-form__step--active">
+				<legend class="register-form__step-title">
+					Register
+				</legend>
+				<label for="name">
+					<span class="register-form__label">Name</span>
+					<input type="text"
+					id="name"
+					placeholder="Enter your name"
+					autocomplete="name"
+					required>
+				</label>
+				<label for="email">
+					<span class="register-form__label">Email</span>
+					<input type="email"
+						id="email"
+						placeholder="Example@gmail.com"
+						autocomplete="email"
+						required>
+				</label>
+				<button type="button"
+					class="register-form__button register-form__button--next">
+					Continue
+				</button>
+			</fieldset>
+
+			<fieldset class="register-form__step">
+				<legend class="register-form__step-title">
+					What topics are you interested in?
+				</legend>
+			
+				<label class="register-form__custom-checkbox" for="softwareDevelopment">
+					Software Development
+					<input type="checkbox"
+						id="softwareDevelopment"
+						name="topics[]"
+						value="Software Development"
+						data-title="Software Development" />
+				</label>
+			
+				<label class="register-form__custom-checkbox" for="userExperience">
+					User Experience
+					<input type="checkbox"
+						id="userExperience"
+						name="topics[]"
+						value="User Experience"
+						data-title="User Experience" />
+				</label>
+			
+				<label class="register-form__custom-checkbox" for="graphicDesign">
+					Graphic Design
+					<input type="checkbox"
+						id="graphicDesign"
+						name="topics[]"
+						value="Graphic Design"
+						data-title="Graphic Design" />
+				</label>
+			
+				<button type="button" class="register-form__button register-form__button--next">
+					Continue
+				</button>
+			</fieldset>
+			
+
+			<fieldset class="register-form__step register-form__step--summary-values">
+				<legend class="register-form__step-title">
+					Summary
+				</legend>
+				<div class="summary-item">
+					<div class="summary-item__label">Name:</div>
+					<div class="summary-item__value"
+						id="summaryName"></div>
+				</div>
+				<div class="summary-item">
+					<div class="summary-item__label">Email:</div>
+					<div class="summary-item__value"
+						id="summaryEmail"></div>
+				</div>
+				<div class="summary-item summary-item--list">
+					<div class="summary-item__label">Topics:</div>
+					<ul class="summary-item__value"
+						id="summaryTopics"></ul>
+				</div>
+				<button type="button"
+					class="register-form__button register-form__button--submit">
+					Continue
+				</button>
+			</fieldset>
+		</form>
+		<div class="form-pagination">
+			<div class="form-pagination__step">Step</div>
+			<div class="form-pagination__dot form-pagination__dot--current"></div>
+			<div class="form-pagination__dot"></div>
+			<div class="form-pagination__dot"></div>
+		</div>
+	</div>
+	<script src="./assets/js/app.js"></script>
+</body>
+
+</html>

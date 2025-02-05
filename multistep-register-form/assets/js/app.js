@@ -1,8 +1,10 @@
 const steps = document.querySelectorAll(".register-form__step");
 const nextButtons = document.querySelectorAll(".register-form__button--next");
+const submitButton = document.querySelector(".register-form__button--submit");
 const dots = document.querySelectorAll(".form-pagination__dot");
 const stepInfo = document.querySelector(".form-pagination__step");
 const checkboxItemsInput = document.querySelectorAll(".register-form__custom-checkbox input");
+const allInputs = document.querySelectorAll("input");
 
 const summaryName = document.getElementById("summaryName");
 const summaryEmail = document.getElementById("summaryEmail");
@@ -76,6 +78,24 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    function successRegistration() {
+        alert("Registration successful!");
+        resetAllInputs();
+        updateSummary();
+        currentStep = 0;
+        showStep(currentStep);
+    }
+
+    function resetAllInputs() {
+        allInputs.forEach((input) => {
+            if (input.type === "checkbox") {
+                input.checked = false;
+            } else {
+                input.value = "";
+            }
+        });
+    }
+
     dots.forEach((dot, i) => {
         dot.addEventListener("click", () => {
             goToStep(i);
@@ -85,6 +105,8 @@ document.addEventListener("DOMContentLoaded", function () {
     nextButtons.forEach((button) => {
         button.addEventListener("click", nextStep);
     });
+
+    submitButton.addEventListener("click", successRegistration);
 
     checkboxItemsInput.forEach((checkboxInput) => {
         checkboxInput.addEventListener("change", () => {

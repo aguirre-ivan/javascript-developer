@@ -41,7 +41,7 @@ body {
   font-weight: bold;
   color: #E3E8EF;
 }
-.quote__topics {
+.quote__tags {
   font-size: 10px;
   list-style: none;
   display: flex;
@@ -51,11 +51,11 @@ body {
   gap: 10px;
 }
 @media screen and (min-width: 576px) {
-  .quote__topics {
+  .quote__tags {
     flex-direction: row;
   }
 }
-.quote__topics li {
+.quote__tags li {
   color: #AEB0FF;
   border: 1px solid #AEB0FF;
   font-weight: bold;

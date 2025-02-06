@@ -1,56 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link
-      rel="icon"
-      href="resources/favicon.ico"
-      type="image/x-icon"
-      sizes="96x96"
-    />
-
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+    <link rel="icon"
+        href="assets/images/favicon.ico"
+        type="image/x-icon"
+        sizes="96x96" />
     <title>Random Quote | devChallenges.io</title>
+    <link rel="stylesheet"
+        href="styles.css" />
+</head>
 
-    <!--You are welcome to delete these styles or modify them in your own stylesheet -->
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        height: 100vh;
-      }
-
-      .author-info {
-        font-size: 14px;
-        text-align: center;
-        margin-top: 16px;
-        color: rgb(55, 65, 81);
-      }
-
-      .author-info a {
-        text-decoration: none;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- 
-
-  Random
-
-  Share
-  
-  -->
-
-    <div class="author-info">
-      Coded by <a href="#">Your Name Here</a> | Challenge by
-      <a href="https://www.devchallenges.io?ref=challenge" target="_blank"
-        >devChallenges.io</a
-      >.
+<body>
+    <div class="main-container">
+        <div class="quote">
+            <div class="quote__author">George Bernard Shaw</div>
+            <ul class="quote__topics">
+                <li>Famous Quotes</li>
+                <li>Inspirational</li>
+            </ul>
+            <div class="quote__text">Learn from yesterday, live for today, hope for tomorrow.</div>
+        </div>
+        <div class="button-container">
+            <button class="button"
+                id="randomButton">
+                Random
+            </button>
+            <button class="button"
+                id="shareButton">
+                Share
+            </button>
+        </div>
     </div>
-  </body>
+</body>
+
 </html>

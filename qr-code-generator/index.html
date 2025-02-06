@@ -1,58 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      rel="icon"
-      href="resources/favicon.ico"
-      type="image/x-icon"
-      sizes="96x96"
-    />
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0" />
+	<link rel="icon"
+		href="assets/images/favicon.ico"
+		type="image/x-icon"
+		sizes="96x96" />
+	<title>QR code generator | devChallenges.io</title>
+	<meta name="description"
+		content="QR code generator Challenge from devChallenges.io, a platform where you can solve real-world projects to improve your skills." />
+	<link rel="stylesheet"
+		href="assets/css/styles.css" />
+</head>
 
-    <title>QR code generator | devChallenges.io</title>
+<body>
+	<div class="main-container">
+		<div class="qr-generator">
+			<div class="qr-generator__logo">
+				<img src="assets/images/Logo.svg"
+					alt="Logo" />
+			</div>
+			<div class="qr-generator__url-input">
+				<form action="">
+					<input type="text"
+						placeholder="Enter an url" />
+					<button type="submit">QR Code</button>
+				</form>
+			</div>
+		</div>
+		<div class="qr-code">
+			<div class="qr-code__logo">
+				<img src="assets/images/Logo.svg"
+					alt="Logo" />
+			</div>
+			<div class="qr-code__container">
+				<img src="assets/images/Logo.svg"
+					alt="QR Code" />
+			</div>
+			<div class="qr-code__download">
+				<button id="downloadButton">Download</button>
+				<button id="shareButton">Share</button>
+			</div>
+		</div>
+	</div>
+	<script source="./assets/js/app.js"></script>
+</body>
 
-    <!--You are welcome to delete these styles or modify them in your own stylesheet -->
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        height: 100vh;
-      }
-
-      .author-info {
-        font-size: 14px;
-        text-align: center;
-        margin-top: 16px;
-        color: rgb(55, 65, 81);
-      }
-
-      .author-info a {
-        text-decoration: none;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- 
-
-  Enter an url
-
-  Download
-  
-  Share
-  
-  -->
-
-    <div class="author-info">
-      Coded by <a href="#">Your Name Here</a> | Challenge by
-      <a href="https://www.devchallenges.io?ref=challenge" target="_blank"
-        >devChallenges.io</a
-      >.
-    </div>
-  </body>
 </html>

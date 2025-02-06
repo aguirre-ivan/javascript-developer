@@ -41,6 +41,17 @@ window.onload = function () {
         });
     }
 
+    function copyToClipboard() {
+        let textToCopy = `${quoteTextElement.textContent} - ${quoteAuthorElement.textContent}`;
+        navigator.clipboard.writeText(textToCopy)
+            .then(() => {
+                console.log('Text copied to clipboard');
+            })
+            .catch((error) => {
+                console.error('Error copying text to clipboard', error);
+            });
+    }
+
     randomButton.addEventListener('click', getRandomQuote);
-    // shareButton.addEventListener('click', shareQuote);
+    shareButton.addEventListener('click', copyToClipboard);
 }

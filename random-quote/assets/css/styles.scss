@@ -1,0 +1,138 @@
+/*
+* Import Google Fonts
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:wght@100&family=Outfit:wght@100..900&display=swap');
+
+/*
+* Reset CSS
+* Global styles
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: #111729;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+}
+
+.quote {
+    background: #20293A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 475px;
+    border-radius: 12px;
+    padding: 2rem;
+    gap: 1rem;
+    background-image: url('../images/bg-image-random-quote.svg');
+    background-position-x: right;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    margin: 1rem;
+
+    &__author {
+        font-size: 16px;
+        font-weight: bold;
+        color: #E3E8EF;
+    }
+
+    &__tags {
+        font-size: 10px;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        @media screen and (min-width: 576px) {
+            flex-direction: row;
+        }
+
+        li {
+            color: #AEB0FF;
+            border: 1px solid #AEB0FF;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+    }
+
+    &__text {
+        font-size: 24px;
+        color: #E3E8EF;
+        text-align: center;
+
+        &::before {
+            content: open-quote;
+            font-size: 24px;
+            color: #AEB0FF;
+        }
+
+        &::after {
+            content: close-quote;
+            font-size: 24px;
+            color: #AEB0FF;
+        }
+    }
+}
+
+.button-container {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+
+    .button {
+        color: #E3E8EF;
+        background: #20293A;
+        box-shadow: none;
+        border: none;
+        padding: 10px 36px 10px 20px;
+        border-radius: 12px;
+        cursor: pointer;
+        position: relative;
+
+        &:hover {
+            background: #2D3B4F;
+        }
+
+        &#randomButton {
+            &:after {
+                background-image: url('../images/regroup.svg');
+            }
+        }
+
+        &#shareButton {
+            &:after {
+                background-image: url('../images/link.svg');
+            }
+        }
+
+        &:after {
+            content: '';
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}

@@ -1,0 +1,119 @@
+/*
+* Import Google Fonts
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:wght@100&family=Outfit:wght@100..900&display=swap');
+
+/*
+* Reset CSS
+* Global styles
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-image: url('../images/qa-bg.jpg');
+    background-position-x: right;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.main-container {
+    position: relative;
+    max-width: 620px;
+    margin: 0 1rem;
+    width: 100%;
+}
+
+.qr-generator,
+.qr-code {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.qr-generator {
+    transform: translateY(0);
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 10;
+
+    &__url-input {
+        width: 100%;
+
+        form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            background-color: #030616;
+            border: 1px solid #263FA9;
+            padding: 5px;
+            border-radius: 1rem;
+
+            input {
+                flex-grow: 1;
+                border-radius: 0.6rem;
+                color: #FAFAF9;
+                font-size: 16px;
+                padding: 1rem 1.4rem;
+                border: none;
+                background: transparent;
+
+                &::placeholder {
+                    color: #FAFAF9;
+                }
+            }
+
+            button {
+                background-color: #263FA9;
+                border: none;
+                border-radius: 0.6rem;
+                color: #FAFAF9;
+                cursor: pointer;
+                font-size: 16px;
+                padding: 1rem 1.5rem;
+                transition: background-color 0.3s ease-in-out;
+
+                &:hover,
+                &:focus {
+                    background-color: #1A2E73;
+                    border: none;
+                }
+            }
+        }
+    }
+}
+
+.qr-code {
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.show-qr {
+    .qr-code {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .qr-generator {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+}
